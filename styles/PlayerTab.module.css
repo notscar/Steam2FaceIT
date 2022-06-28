@@ -1,0 +1,82 @@
+.playerTab {
+    display:flex;
+    align-items: center;
+    margin:auto;
+    width: 23vw;
+    height: 19vh;
+    padding: 2vh 1vw;
+    background-color: var(--clr-1);
+    border-radius: 0.4rem;
+    -webkit-box-shadow: 1px 2px 15px 5px rgba(0,0,0,0.45);
+    box-shadow: 1px 2px 15px 5px rgba(0,0,0,0.45);
+}
+
+.playerImage {
+    height: 15vh;
+    border-radius: 100%;
+}
+
+.playerInformation {
+    font-family: "Lato",serif;
+    font-weight: 400;
+    padding: 0 1vw;
+    color: var(--clr-3);
+}
+
+.playerInformation > img {
+    height: 4vh;
+}
+
+.eloImage {
+    height: 3vh !important;
+}
+
+.playerName {
+    font-size: 1.5rem;
+    margin-left: 0.2vw;
+    margin-top: -0.5vh;
+}
+
+.matchWin {
+    color: #32d35a;
+}
+
+.matchLoss {
+    color: #ff002b;
+}
+
+.playerInformation div {
+    display:flex;
+    align-items: center;
+}
+
+.spacedDiv {
+    margin-bottom: 1vh;
+    margin-left: -0.3vw;
+}
+
+.matches {
+    margin-top: 0.25rem;
+    display:flex;
+    column-gap: 0.2rem;
+    padding: 0.2vh 0.5vw;
+    background-color: var(--clr-4);
+    border-radius: 0.2rem;
+    width: fit-content;
+    line-height: 1.4rem
+}
+
+@media only screen and (max-width: 600px) {
+    .playerTab {
+        width: 80vw;
+        padding: 2vh 5vw;
+    }
+
+    .playerName {
+        width: 100%
+    }
+
+    .playerInformation {
+        padding: 0 5vw;
+    }
+}

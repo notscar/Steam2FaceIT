@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Play:wght@400;700&display=swap');
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: var(--clr-4);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-1: #141616;
+    --clr-2: #FF5500;
+    --clr-3: #EBEFF3;
+    --clr-4: #232828;
+}
+
+@media only screen and (min-width: 384px) {
+    :root {
+        font-size: 13px
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    :root {
+        font-size: 5px
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    :root {
+        font-size: 6px
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    :root {
+        font-size: 7px
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    :root {
+        font-size: 7px
+    }
+}
+
+@media only screen and (min-width: 1098px) {
+    :root {
+        font-size: 10px
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    :root {
+        font-size: 12px
+    }
+}
+
+@media only screen and (min-width: 1536px) {
+    :root {
+        font-size: 14px
+    }
+}
+
+@media only screen and (min-width: 1746px) {
+    :root {
+        font-size: 15px
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    :root {
+        font-size: 17px
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    :root {
+        font-size: 20px
+    }
+}
+
+@media only screen and (min-width: 2880px) {
+    :root {
+        font-size: 24px
+    }
+}
+
+@media only screen and (min-width: 3840px) {
+    :root {
+        font-size: 33px
+    }
+}
+
+@media only screen and (min-width: 5760px) {
+    :root {
+        font-size: 53px
+    }
+}
+
+@media only screen and (min-width: 7680px) {
+    :root {
+        font-size: 65px
+    }
+}
