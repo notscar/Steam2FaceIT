@@ -80,3 +80,33 @@
         padding: 0 5vw;
     }
 }
+
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+    .playerTab {
+        width: 55vw;
+        padding: 2vh 5vw;
+    }
+
+    .playerName {
+        width: 100%
+    }
+
+    .playerInformation {
+        padding: 0 5vw;
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1220px) {
+    .playerTab {
+        width: 40vw;
+    }
+
+    .playerName {
+        width: 100%
+    }
+
+    .playerInformation {
+        padding: 0 2vw;
+    }
+}
