@@ -1,8 +1,8 @@
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import PlayerTab from "../components/PlayerTab";
-import { useState } from 'react';
-
+import {useState} from "react";
+import Head from "next/head";
 
 
 export default function Search() {
@@ -13,18 +13,21 @@ export default function Search() {
         try {
             setIsLoading(true);
             const response = await fetch(`/api/lookup?steam=${steamId}&type=${steamType}`);
-            const data = await response.json()
+            const data = await response.json();
             setPlayerData(data);
             setIsLoading(false);
-        } catch(err) {
+        } catch (err) {
             setIsLoading(false);
         }
-
-
     }
 
     return (
         <div>
+            <Head>
+                <title>Steam to FACEIT</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+                <link rel="shortcut icon" href="/favicon.png" type="image/x-icon"/>
+            </Head>
             <Header/>
             <SearchBar searchAction={getPlayerInformation} isLoading={isLoading}/>
             {Object.keys(playerData).length > 1 &&
