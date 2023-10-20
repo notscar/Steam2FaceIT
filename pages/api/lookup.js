@@ -4,7 +4,7 @@ async function getPlayerInformation(playerName) {
     const config = {
         params: {
             nickname: playerName,
-            game: "csgo"
+            game: "cs2"
         },
         headers: {
             accept: "application/json",
@@ -20,7 +20,7 @@ async function getPlayerFromSteam(steam) {
     const config = {
         params: {
             nickname: steam,
-            game: "csgo",
+            game: "cs2",
             offset: 0,
             limit: 1
         },
@@ -72,8 +72,8 @@ export default async function handler(req, res) {
         res.status(200).json({
             avatar: playerFaceitData["avatar"],
             country: playerFaceitData["country"],
-            elo: playerFaceitData["games"]["csgo"]["faceit_elo"],
-            level: playerFaceitData["games"]["csgo"]["skill_level"],
+            elo: playerFaceitData["games"]["cs2"]["faceit_elo"],
+            level: playerFaceitData["games"]["cs2"]["skill_level"],
             id: playerFaceitData["player_id"],
             link: playerFaceitData["faceit_url"].replace("{lang}", "en"),
             name: playerFaceitName,
