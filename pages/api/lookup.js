@@ -52,7 +52,7 @@ async function getPlayerFaceitStats(userId) {
             authorization: "Bearer " + process.env.FACEIT_API_KEY
         }
     };
-    const response = await axios.get(`https://open.faceit.com/data/v4/players/${userId}/stats/csgo`, config);
+    const response = await axios.get(`https://open.faceit.com/data/v4/players/${userId}/stats/cs2`, config);
     return response.data;
 }
 
