@@ -56,19 +56,39 @@ async function getPlayerFaceitStats(userId) {
     return response.data;
 }
 
+async function getPlayerActiveBan(userId) {
+    const response = await axios.get(`https://api.faceit.com/queue/v1/ban?userId=${userId}&organizerId=faceit&offset=0&limit=20`);
+    if (response.data.code !== "OPERATION-OK") {
+        return null
+    }
+
+    for (const ban of response.data.payload) {
+        if (!ban.expired) {
+            return {
+                banReason: ban.reason,
+                banStart: ban.banStart,
+                banEnd: ban.banEnd,
+                banner: ban["createdBy"].nickname
+            }
+        }
+    }
+    return null;
+}
+
 export default async function handler(req, res) {
-    const playerData = {};
     try {
         const steamId = req.query.type === "VanityURL" ? await getPlayerSteamIdFromVanityURL(req.query.steam) : req.query.steam;
         const playerFaceitName = await getPlayerFromSteam(steamId);
 
         if (!playerFaceitName) {
-            res.status(400).json({ error: "Player not found" });
+            res.status(400).json({error: "Player not found"});
         }
 
 
         const playerFaceitData = await getPlayerInformation(playerFaceitName);
         const playerFaceitStats = await getPlayerFaceitStats(playerFaceitData["player_id"]);
+        const playerBanData = await getPlayerActiveBan(playerFaceitData["player_id"]);
+
         res.status(200).json({
             avatar: playerFaceitData["avatar"],
             country: playerFaceitData["country"],
@@ -80,10 +100,11 @@ export default async function handler(req, res) {
             kd: playerFaceitStats["lifetime"]["Average K/D Ratio"],
             recent: playerFaceitStats["lifetime"]["Recent Results"],
             winRate: playerFaceitStats["lifetime"]["Win Rate %"],
-            winStreak: playerFaceitStats["lifetime"]["Current Win Streak"]
+            winStreak: playerFaceitStats["lifetime"]["Current Win Streak"],
+            ban: playerBanData
         });
     } catch (err) {
-        res.status(400).json({ error: "Couldn't find player" });
+        res.status(400).json({error: "Couldn't find player"});
     }
 
 

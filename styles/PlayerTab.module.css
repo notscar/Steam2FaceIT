@@ -1,14 +1,16 @@
 .playerTab {
-    display:flex;
+    display: flex;
     align-items: center;
-    margin:auto;
-    width: 23vw;
-    height: 19vh;
+    margin: auto;
+    width: fit-content;
+    min-width: 20vw;
+    min-height: 19vh;
     padding: 2vh 1vw;
     background-color: var(--clr-1);
     border-radius: 0.4rem;
-    -webkit-box-shadow: 1px 2px 15px 5px rgba(0,0,0,0.45);
-    box-shadow: 1px 2px 15px 5px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 1px 2px 15px 5px rgba(0, 0, 0, 0.45);
+    box-shadow: 1px 2px 15px 5px rgba(0, 0, 0, 0.45);
+    justify-content: space-evenly;
 }
 
 .playerImage {
@@ -17,7 +19,7 @@
 }
 
 .playerInformation {
-    font-family: "Lato",serif;
+    font-family: "Lato", serif;
     font-weight: 400;
     padding: 0 1vw;
     color: var(--clr-3);
@@ -46,7 +48,7 @@
 }
 
 .playerInformation div {
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
@@ -57,13 +59,55 @@
 
 .matches {
     margin-top: 0.25rem;
-    display:flex;
+    display: flex;
     column-gap: 0.2rem;
     padding: 0.2vh 0.5vw;
     background-color: var(--clr-4);
     border-radius: 0.2rem;
     width: fit-content;
     line-height: 1.4rem
+}
+
+.banTag {
+    margin-left: 0.3vw;
+    margin-top: 0.25rem;
+    display: flex;
+    column-gap: 0.2rem;
+    padding: 0.2vh 0.5vw;
+    background-color: var(--clr-4);
+    border-radius: 0.2rem;
+    width: fit-content;
+    line-height: 1.4rem;
+    font-weight: 600;
+    color: #ff002b;
+}
+
+.ban {
+    margin-top: 0.25rem;
+    display: flex;
+    padding: 0 0.5vw;
+    background-color: var(--clr-4);
+    border-radius: 0.2rem;
+    width: fit-content;
+    height: 13vh;
+    line-height: 1.4rem;
+    color: #EBEFF3;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.banField {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.banField > span {
+    padding: 0.2vh 0.5vw;
+    background-color: var(--clr-1);
+    border-radius: 0.2rem;
+    font-weight: normal;
 }
 
 @media only screen and (max-width: 600px) {
