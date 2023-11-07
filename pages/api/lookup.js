@@ -57,7 +57,28 @@ async function getPlayerFaceitStats(userId) {
 }
 
 async function getPlayerActiveBan(userId) {
-    const response = await axios.get(`https://api.faceit.com/queue/v1/ban?userId=${userId}&organizerId=faceit&offset=0&limit=20`);
+    let response
+
+    response = await axios.get(`https://api.faceit.com/sheriff/v1/bans/${userId}`);
+    if (response.data.code === "OPERATION-OK") {
+        for (const ban of response.data.payload) {
+            if (ban.game !== "cs2") {
+                continue
+            }
+
+            const dateDiff = new Date(ban.ends_at) - new Date(ban.starts_at); 
+            if (dateDiff > 0) {
+                return {
+                    banReason: ban.reason,
+                    banStart: ban.starts_at,
+                    banEnd: ban.ends_at,
+                    banner: "Manual Ban (SH-1)"
+                }
+            }
+        }
+    }
+
+    response = await axios.get(`https://api.faceit.com/queue/v1/ban?userId=${userId}&organizerId=faceit&offset=0&limit=100`);
     if (response.data.code !== "OPERATION-OK") {
         return null
     }
